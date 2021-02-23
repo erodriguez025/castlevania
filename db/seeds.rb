@@ -8,6 +8,7 @@
 require 'faker'
 User.destroy_all
 
+User.destroy_all
 Castle.destroy_all
 
 puts 'Creating 30 fake castles and users...'
@@ -31,6 +32,7 @@ puts 'Creating 30 fake castles and users...'
     price_per_day: rand(199..2000),
     user_id: user.id
   )
+  castle.user = User.all.sample
   castle.save!
   puts "Castle saved"
 end

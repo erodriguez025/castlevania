@@ -29,6 +29,11 @@ class CastlesController < ApplicationController
     redirect_to @castle
   end
 
+  def my_castles
+    @castles = Castle.where(user: current_user)
+  end
+  
+
   private
 
   def find_castle
