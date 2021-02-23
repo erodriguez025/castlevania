@@ -11,5 +11,21 @@ class CastlesController < ApplicationController
   def show
     @castle = Castle.find(params[:id])
   end
+
+  def create
+    @castle = Castle.new(castle_params)
+    if @castle.save
+      redirect_to castle_path(@castle)
+    else
+      render 'new'
+    end
+  end
+  
+  private
+
+  def castle_params
+    params.require(:castle).permit(:name, :photo, :country)
+  end
+  
   
 end
