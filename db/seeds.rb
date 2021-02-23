@@ -40,3 +40,8 @@ puts 'Creating 100 fake users...'
   puts "User saved"
 end
 puts 'Finished!'
+
+
+#NOTA PARA GONZA MODIFICAR LAS USER ID Y EL CASTLE ID CON LO CREADO
+Booking.create(check_in: "23/2/2021", check_out: "10/3/2021", user_id: 1, castle_id: 1, total_price: 300000)
+Booking.create(check_in: "2/2/2021", check_out: "21/2/2021", user_id: 2, castle_id: 1, total_price: 200000)
