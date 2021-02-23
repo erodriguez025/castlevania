@@ -1,0 +1,16 @@
+<h1> Editar Castle</h1>
+
+<%= simple_form_for [ @castle ] do |f| %>
+  <%= f.input :name %>
+  <%#= f.input :country %>
+  <%= f.input :city %>
+  <%= f.input :address %>
+  <%= f.input :zip_code %>
+  <%= f.input :description %>
+  <%= f.input :price_per_day %>
+  <%= f.submit "Submit", class: "btn btn-primary" %>
+<% end %>
+
+
+
+<%= link_to "Back to list", new_castle_path %>

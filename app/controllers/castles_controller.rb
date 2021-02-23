@@ -1,5 +1,6 @@
 class CastlesController < ApplicationController
-  
+  before_action :find_castle, only: [:show, :edit, :update, :destroy]
+
   def index
     @castles = Castle.all
   end
@@ -7,9 +8,11 @@ class CastlesController < ApplicationController
   def new
     @castle = Castle.new
   end
-  
+
   def show
-    @castle = Castle.find(params[:id])
+  end
+
+  def edit
   end
 
   def create
@@ -20,12 +23,21 @@ class CastlesController < ApplicationController
       render 'new'
     end
   end
-  
+
+  def update
+    @castle.update(castle_params)
+    redirect_to @castle
+  end
+
   private
 
-  def castle_params
-    params.require(:castle).permit(:name, :photo, :country)
+  def find_castle
+    @castle = Castle.find(params[:id])
   end
   
+  def castle_params
+    params.require(:castle).permit(:name, :country, :city, :address, :zip_code, :description, :price_per_day, :photo)
+  end
   
 end
+
