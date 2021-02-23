@@ -234,7 +234,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails
@@ -243,7 +242,7 @@ DEPENDENCIES
   capybara (>= 3.26)
   devise
   dotenv-rails
-  font-awesome-sass
+  font-awesome-sass (~> 5.15.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
   pg (~> 1.1)
@@ -266,4 +265,4 @@ RUBY VERSION
    ruby 2.6.6p146
 
 BUNDLED WITH
-   2.2.4
+   2.1.4
