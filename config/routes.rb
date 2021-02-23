@@ -5,4 +5,5 @@ Rails.application.routes.draw do
     resources :bookings, only: [:new, :create, :index]
   end
   resources :bookings, only: [:destroy]
+  get 'mycastles', to: 'castles#my_castles'
 end
