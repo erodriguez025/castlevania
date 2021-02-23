@@ -1,2 +1,2 @@
-class Castle < ApplicationRecord
+class Castle < ApplicationRecord  
 end
