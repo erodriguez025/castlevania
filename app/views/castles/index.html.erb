@@ -8,19 +8,18 @@
 <div class="container">
   <div class="cards">
     <% counter = 0 %>
-      <% @castles.each do |castle| %>
-        <div class="card-trip">
-          <% counter += 1 %>
-          <%= image_tag "https://source.unsplash.com/1600x900/?castle?#{counter}", class: "card-trip" %>
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= castle.name %></h2>
-              <p><%= castle.city %></p>
-            </div>
-            <h2 class="card-trip-pricing"><%= "$#{castle.price_per_day}" %></h2>
+    <% @castles.each do |castle| %>
+      <div class="card-trip">
+        <% counter += 1 %>
+        <%= image_tag "https://source.unsplash.com/1600x900/?castle?#{counter}", class: "card-trip" %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= link_to castle.name, castle_path(castle) %></h2>
+            <p><%= castle.city %></p>
           </div>
+          <h2 class="card-trip-pricing"><%= "$#{castle.price_per_day}" %></h2>
+        </div>
       </div>
     <% end %>
-   
   </div>
 </div>

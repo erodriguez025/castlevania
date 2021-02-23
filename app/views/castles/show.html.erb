@@ -1,11 +1,15 @@
-<h1> My Castles </h1>
+<div class="container">
 
-<h2><%= @castle.name %></h2>
-<h2><%= @castle.country %></h2> 
-<h2><%= @castle.city %></h2>
-<h2><%= @castle.address %></h2>
-<h2><%= @castle.city %></h2>
-<h2><%= @castle.description %></h2>
-<h2><%= @castle.price_per_day %></h2>
+  <h1> My Castles </h1>
 
-<%= link_to "Back to all castles", root_path %>
+  <h2><%= @castle.name %></h2>
+  <h2><%= @castle.country %></h2> 
+  <h2><%= @castle.city %></h2>
+  <h2><%= @castle.address %></h2>
+  <h2><%= @castle.city %></h2>
+  <h2><%= @castle.description %></h2>
+  <h2><%= @castle.price_per_day %></h2>
+  <%= link_to "Book this castle", new_castle_booking_path(@castle), class: "btn btn-primary" %>
+  <%= link_to "Back to all castles", root_path, class: "btn btn-secondary" %>
+
+</div>
