@@ -1,0 +1,6 @@
+<h1>My Castles Bookings</h1>
+<% @user_bookings.each do |booking| %>
+  <h3>You have a booking for <%= booking.castle.name %> castle</h3>
+  <p>From: <%= booking.check_in %> to: <%= booking.check_out %></p>
+  <p><strong>And your earnings gonna be <%= booking.total_price %></strong></p>
+<% end %>

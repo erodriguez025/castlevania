@@ -6,12 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+User.destroy_all
 
 User.destroy_all
 Castle.destroy_all
 
-puts 'Creating 5 fake users...'
-5.times do
+puts 'Creating 30 fake castles and users...'
+30.times do
   user = User.new(
     email: Faker::Internet.email,
     password: "Lamejorclave22",
@@ -21,11 +22,6 @@ puts 'Creating 5 fake users...'
   )
   user.save!
   puts "User saved"
-end
-
-
-puts 'Creating 10 fake castles...'
-20.times do
   castle = Castle.new(
     name: Faker::Address.street_name,
     country: Faker::Address.country,
@@ -33,16 +29,16 @@ puts 'Creating 10 fake castles...'
     address: Faker::Address.street_address,
     zip_code: Faker::Address.zip_code,
     description: Faker::Lorem.paragraph,
-    price_per_day: rand(2000..5000)
+    price_per_day: rand(199..2000),
+    user_id: user.id
   )
   castle.user = User.all.sample
   castle.save!
   puts "Castle saved"
 end
+
+puts "Creating bookings"
+Booking.create!(check_in: "23/2/2021", check_out: "10/3/2021", user_id: User.first.id, castle_id: Castle.second.id, total_price: 300000)
+Booking.create!(check_in: "2/2/2021", check_out: "21/2/2021", user_id: User.second.id, castle_id: Castle.first.id, total_price: 200000)
+
 puts 'Finished!'
-
-
-
-#NOTA PARA GONZA MODIFICAR LAS USER ID Y EL CASTLE ID CON LO CREADO
-Booking.create(check_in: "23/2/2021", check_out: "10/3/2021", user_id: 1, castle_id: 1, total_price: 300000)
-Booking.create(check_in: "2/2/2021", check_out: "21/2/2021", user_id: 2, castle_id: 1, total_price: 200000)

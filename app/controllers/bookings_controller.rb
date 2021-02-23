@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   before_action :set_castle, only: [:new, :create]
 
+  def my_bookings
+    @user_bookings = current_user.guest_bookings
+  end
+
   def new
     @booking = Booking.new
   end
