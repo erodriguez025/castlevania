@@ -7,28 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+User.destroy_all
 Castle.destroy_all
 
-puts 'Creating 100 fake castles...'
-100.times do
-  castle = Castle.new(
-    name: Faker::Address.street_name,
-    country: Faker::Address.country,
-    city: Faker::Address.city,
-    address: Faker::Address.street_address,
-    zip_code: Faker::Address.zip_code,
-    description: Faker::Lorem.paragraph,
-    price_per_day: rand(199..2000)
-  )
-  castle.save!
-  puts "Castle saved"
-end
-puts 'Finished!'
-
-User.destroy_all
-
-puts 'Creating 100 fake users...'
-100.times do
+puts 'Creating 5 fake users...'
+5.times do
   user = User.new(
     email: Faker::Internet.email,
     password: "Lamejorclave22",
@@ -39,7 +22,25 @@ puts 'Creating 100 fake users...'
   user.save!
   puts "User saved"
 end
+
+
+puts 'Creating 10 fake castles...'
+20.times do
+  castle = Castle.new(
+    name: Faker::Address.street_name,
+    country: Faker::Address.country,
+    city: Faker::Address.city,
+    address: Faker::Address.street_address,
+    zip_code: Faker::Address.zip_code,
+    description: Faker::Lorem.paragraph,
+    price_per_day: rand(2000..5000)
+  )
+  castle.user = User.all.sample
+  castle.save!
+  puts "Castle saved"
+end
 puts 'Finished!'
+
 
 
 #NOTA PARA GONZA MODIFICAR LAS USER ID Y EL CASTLE ID CON LO CREADO
