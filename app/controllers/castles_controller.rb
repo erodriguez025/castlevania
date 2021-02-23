@@ -15,6 +15,15 @@ class CastlesController < ApplicationController
   def edit
   end
 
+  def create
+    @castle = Castle.new(castle_params)
+    if @castle.save
+      redirect_to castle_path(@castle)
+    else
+      render 'new'
+    end
+  end
+
   def update
     @castle.update(castle_params)
     redirect_to @castle
@@ -25,8 +34,10 @@ class CastlesController < ApplicationController
   def find_castle
     @castle = Castle.find(params[:id])
   end
-
+  
   def castle_params
-    params.require(:castle).permit(:name, :country, :city, :address, :zip_code, :description, :price_per_day)
+    params.require(:castle).permit(:name, :country, :city, :address, :zip_code, :description, :price_per_day, :photo)
   end
+  
 end
+
