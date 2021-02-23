@@ -6,29 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+User.destroy_all
 
 Castle.destroy_all
 
-puts 'Creating 100 fake castles...'
-100.times do
-  castle = Castle.new(
-    name: Faker::Address.street_name,
-    country: Faker::Address.country,
-    city: Faker::Address.city,
-    address: Faker::Address.street_address,
-    zip_code: Faker::Address.zip_code,
-    description: Faker::Lorem.paragraph,
-    price_per_day: rand(199..2000)
-  )
-  castle.save!
-  puts "Castle saved"
-end
-puts 'Finished!'
-
-User.destroy_all
-
-puts 'Creating 100 fake users...'
-100.times do
+puts 'Creating 30 fake castles and users...'
+30.times do
   user = User.new(
     email: Faker::Internet.email,
     password: "Lamejorclave22",
@@ -38,10 +21,22 @@ puts 'Creating 100 fake users...'
   )
   user.save!
   puts "User saved"
+  castle = Castle.new(
+    name: Faker::Address.street_name,
+    country: Faker::Address.country,
+    city: Faker::Address.city,
+    address: Faker::Address.street_address,
+    zip_code: Faker::Address.zip_code,
+    description: Faker::Lorem.paragraph,
+    price_per_day: rand(199..2000),
+    user_id: user.id
+  )
+  castle.save!
+  puts "Castle saved"
 end
+
+puts "Creating bookings"
+Booking.create!(check_in: "23/2/2021", check_out: "10/3/2021", user_id: User.first.id, castle_id: Castle.second.id, total_price: 300000)
+Booking.create!(check_in: "2/2/2021", check_out: "21/2/2021", user_id: User.second.id, castle_id: Castle.first.id, total_price: 200000)
+
 puts 'Finished!'
-
-
-#NOTA PARA GONZA MODIFICAR LAS USER ID Y EL CASTLE ID CON LO CREADO
-Booking.create(check_in: "23/2/2021", check_out: "10/3/2021", user_id: 1, castle_id: 1, total_price: 300000)
-Booking.create(check_in: "2/2/2021", check_out: "21/2/2021", user_id: 2, castle_id: 1, total_price: 200000)
