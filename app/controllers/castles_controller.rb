@@ -1,4 +1,5 @@
 class CastlesController < ApplicationController
+  
   def index
     @castles = Castle.all
   end
@@ -15,4 +16,12 @@ class CastlesController < ApplicationController
       render 'new'
     end
   end
+
+
+  
+  def show
+    @castle = Castle.find(params[:id])
+  end
+  
 end
+
