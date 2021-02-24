@@ -13,7 +13,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.castle = @castle
     @booking.user = current_user
-    @booking.save
+    if @booking.save!
+      redirect_to booking_path(@booking.id)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 
   private

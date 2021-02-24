@@ -1,0 +1,17 @@
+<div class="container d-flex justify-content-center">
+    <div class="card mt-5 p-3">
+        <div class="media"> <img src="https://imgur.com/cmZHasX.png" class="mr-3">
+            <div class="media-body">
+                <p class="mt-0 mb-1">Your booking #<%= rand(100..1000) %><%= @booking.id %></p>
+                <h6>at The Castle <%= @booking.castle.name %></h6>
+            </div>
+        </div>
+        <hr>
+        <div>
+            <p>Here are the details:</p>
+            <p>Check-in: <%= @booking.check_in %></p>
+            <p>Check-out: <%= @booking.check_out %></p> 
+            <p>Total Price: $<%= @booking.total_price %></p>
+        </div>
+    </div>
+</div>
