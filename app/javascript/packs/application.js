@@ -22,10 +22,12 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import '../plugins/init_flatpickr'
 import {calculatePrice } from '../components/calculate_price'
+import { initAutocomplete } from "../plugins/init_autocomplete";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   calculatePrice();
+  initAutocomplete();
 });
 
