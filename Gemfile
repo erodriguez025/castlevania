@@ -30,6 +30,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 gem 'font-awesome-sass', '~> 5.15.1'
 gem 'simple_form'
 gem 'devise'
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'
