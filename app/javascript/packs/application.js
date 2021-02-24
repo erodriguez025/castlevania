@@ -6,7 +6,6 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import "channels"
-
 Rails.start()
 Turbolinks.start()
 
@@ -21,10 +20,14 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+import '../plugins/init_flatpickr'
+import {calculatePrice } from '../components/calculate_price';
 import { initAutocomplete } from "../plugins/init_autocomplete";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  calculatePrice();
   initAutocomplete();
 });
+
