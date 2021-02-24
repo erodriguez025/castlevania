@@ -13,7 +13,16 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.castle = @castle
     @booking.user = current_user
-    @booking.save
+    @booking.total_price = @castle.price_per_day * @booking.number_of_days
+    if @booking.save!
+      redirect_to booking_path(@booking.id)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 
   private
@@ -23,7 +32,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:check_in, :check_out, :total_price)
+    params.require(:booking).permit(:check_in, :check_out, :number_of_days)
   end
 
 end

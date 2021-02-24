@@ -30,7 +30,7 @@ puts 'Creating 12 fake castles and users...'
     city: Faker::Address.city,
     address: Faker::Address.street_address,
     zip_code: Faker::Address.zip_code,
-    description: Faker::Lorem.paragraph,
+    description: Faker::Lorem.paragraph(sentence_count: 5, supplemental: false, random_sentences_to_add: 4),
     price_per_day: rand(199..2000),
     user_id: user.id
   )
