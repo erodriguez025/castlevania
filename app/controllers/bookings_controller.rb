@@ -14,7 +14,15 @@ class BookingsController < ApplicationController
     @booking.castle = @castle
     @booking.user = current_user
     @booking.total_price = @castle.price_per_day * @booking.number_of_days
-    @booking.save
+    if @booking.save!
+      redirect_to booking_path(@booking.id)
+    else
+      render :new
+    end
+  end
+
+  def show
+    @booking = Booking.find(params[:id])
   end
 
   private
