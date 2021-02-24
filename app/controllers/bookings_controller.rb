@@ -13,6 +13,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.castle = @castle
     @booking.user = current_user
+    @booking.total_price = @castle.price_per_day * @booking.number_of_days
     @booking.save
   end
 

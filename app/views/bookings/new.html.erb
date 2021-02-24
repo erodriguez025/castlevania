@@ -1,9 +1,12 @@
 <div class="row justify-content-center pb-5">
   <%= simple_form_for ([@castle, @booking]) do |f| %>
-  <%= f.input :check_in %>
-  <%= f.input :check_out %>
-  <%= f.input :total_price %>
-  <%= f.button :submit, class: "btn btn-primary" %>
+  <%= f.input :check_in, as: :string, input_html: { class: "datapickr" } %>
+  <%= f.input :number_of_days, as: :integer %>
+  <p>Total Cost: <span id="totalPrice" data-price-per-day="<%= @castle.price_per_day %>" class="font-weight-bold"></span></p>
+  <%#= f.input :total_price %>
+  <div class="d-flex justify-content-center">
+    <%= f.button :submit, class: "btn btn-primary" %>
+  </div>
   <% end %>
 </div>
 
