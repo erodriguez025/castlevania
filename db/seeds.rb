@@ -11,8 +11,10 @@ User.destroy_all
 User.destroy_all
 Castle.destroy_all
 
-puts 'Creating 30 fake castles and users...'
-30.times do
+castles = ["Conwy Castle", "Hohenzollern Castle", "Windsor Castle", "Neuschwanstein Castle", "Eltz Castle", "Malbork Castle", "Schwerin Castle", "Lichtenstein Castle", "Castelul Corvinilor", "Bodiam Castle"]
+
+puts 'Creating 10 fake castles and users...'
+10.times do
   user = User.new(
     email: Faker::Internet.email,
     password: "Lamejorclave22",
@@ -23,7 +25,7 @@ puts 'Creating 30 fake castles and users...'
   user.save!
   puts "User saved"
   castle = Castle.new(
-    name: Faker::Address.street_name,
+    name: castles.sample,
     country: Faker::Address.country,
     city: Faker::Address.city,
     address: Faker::Address.street_address,
