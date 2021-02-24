@@ -13,8 +13,8 @@ Castle.destroy_all
 
 castles = ["Conwy Castle", "Hohenzollern Castle", "Windsor Castle", "Neuschwanstein Castle", "Eltz Castle", "Malbork Castle", "Schwerin Castle", "Lichtenstein Castle", "Castelul Corvinilor", "Bodiam Castle"]
 
-puts 'Creating 10 fake castles and users...'
-10.times do
+puts 'Creating 12 fake castles and users...'
+12.times do
   user = User.new(
     email: Faker::Internet.email,
     password: "Lamejorclave22",
