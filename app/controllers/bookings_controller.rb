@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:check_in, :check_out, :total_price)
+    params.require(:booking).permit(:check_in, :check_out, :number_of_days)
   end
 
 end
