@@ -1,15 +1,27 @@
-<div class="container">
+<div class="bg-white">
+  <div class="container p-3">
+    <div class="row">
+        <h3><%= @castle.name %></h3>
+      <img class="w-100 rounded mb-4" src="https://source.unsplash.com/1600x300/?castle?1">
+      <div class="col-md-8">
+        <p><%= @castle.description %></p>
+        
+  
+            <p> <%= @castle.address %></p>
 
-  <h1> My Castles </h1>
-
-  <h2><%= @castle.name %></h2>
-  <h2><%= @castle.country %></h2> 
-  <h2><%= @castle.city %></h2>
-  <h2><%= @castle.address %></h2>
-  <h2><%= @castle.city %></h2>
-  <h2><%= @castle.description %></h2>
-  <h2><%= @castle.price_per_day %></h2>
-  <%= link_to "Book this castle", new_castle_booking_path(@castle), class: "btn btn-primary" %>
-  <%= link_to "Back to all castles", root_path, class: "btn btn-secondary" %>
-
+            
+         
+      </div>
+      <div class="col-md-4">
+          <div class="card p-3 mb-3">  
+            <p><strong>$ <%= @castle.price_per_day %>  </strong>/día</p>          
+            <p><strong> LUGAR PARA FORMULARIO (SANTI) </strong></p>
+            <%= link_to "Book this castle", new_castle_booking_path(@castle), class: "btn btn-primary" %>
+          </div>
+      </div>
+    </div>
+    <%= link_to "Back to all castles", root_path, class: "btn btn-secondary" %>
+  </div>
 </div>
+
+
