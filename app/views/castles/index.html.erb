@@ -6,26 +6,36 @@
   </div>
 </div>
 
+<div class="d-flex flex-column map-container">
+  <div class="text-center mb-3">
+    <h1>Our global offering</h1>
+  </div>
+  <div class="container" id="map"
+  style="width: 100%; height: 600px; border-radius: 15px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+</div>
+
 <div class="container">
+  <div class="explore my-5">
+    <h1>Not sure where to go yet?</h1>
+    <h2>Explore our options</h2>
+  </div>
   <div class="cards">
     <% counter = 0 %>
     <% @castles.each do |castle| %>
-      <div class="card-trip">
-        <% counter += 1 %>
-        <%= image_tag "https://source.unsplash.com/1600x900/?castle?#{counter}", class: "card-trip" %>
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= link_to castle.name, castle_path(castle) %></h2>
-            <p><%= castle.city %></p>
-          </div>
-          <h2 class="card-trip-pricing"><%= "$#{castle.price_per_day}" %></h2>
+    <div class="card-trip">
+      <% counter += 1 %>
+      <%= image_tag "https://source.unsplash.com/1600x900/?castle?#{counter}", class: "card-trip" %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= link_to castle.name, castle_path(castle) %></h2>
+          <p><%= castle.city %></p>
         </div>
+        <h2 class="card-trip-pricing"><%= "$#{castle.price_per_day}" %></h2>
       </div>
+    </div>
     <% end %>
-  </div>
-  <div id="map"
-    style="width: 100%; height: 600px;"
-    data-markers="<%= @markers.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
