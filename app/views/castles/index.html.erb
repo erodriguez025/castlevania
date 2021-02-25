@@ -24,7 +24,9 @@
 <div class="container">
   <div class="explore my-5">
     <h1>Not sure where to go yet?</h1>
-    <h2 id="explore">Explore our options <%= params[:query].capitalize %></h2>
+    <% if params[:query] %>
+    <h2 id="explore">Explore our options in <%= params[:query].capitalize %></h2>
+    <% end %>  
   </div>
   <div class="cards">
     <% counter = 0 %>
