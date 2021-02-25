@@ -2,7 +2,11 @@ class CastlesController < ApplicationController
   before_action :find_castle, only: [:show, :edit, :update, :destroy]
 
   def index
-    @castles = Castle.all
+    if params[:query].present?
+      @castles = Castle.search_by_name_and_country(params[:query])
+    else
+      @castles = Castle.all
+    end
     @markers = @castles.geocoded.map do |castle|
       {
         lat: castle.latitude,
@@ -52,4 +56,3 @@ class CastlesController < ApplicationController
   end
   
 end
-

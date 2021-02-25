@@ -1,0 +1,41 @@
+#castles-new-container {
+  background: linear-gradient(rgba(255,255,255, .25), rgba(255,255,255, .15)), url("https://cdn-image.departures.com/sites/default/files/1552088787/chateau-de-chambord-castle-loire-valley-france-FRENCHCASTLES0319.jpg");
+  padding: 10%;
+}
+
+.castles-new-card {
+  background: rgb(238, 238, 238); 
+  border-radius: 5%;
+  padding: 5% 0%;
+  height: 600px;
+  width: 450px;
+  box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+}
+
+.boton-de-cancelar {
+  width: 25px;
+  height: 25px;
+  background-color: rgba(37, 37, 37, 0.61);
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  margin-top: 3.5%;
+  position: relative;
+  right: -5%;
+}
+
+.boton-de-cancelar:hover {
+  width: 25px;
+  height: 25px;
+  background-color: brown;
+  border-radius: 50%;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  margin-top: 3.5%;
+  position: relative;
+  right: -5%;
+}
