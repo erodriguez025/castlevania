@@ -50,6 +50,15 @@
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+
+  a {
+    color: #141816;
+  }
+
+  a:hover {
+    color: gray;
+    text-decoration: none;
+  }
 }
 
 .card-trip-infos .card-trip-user {
@@ -57,4 +66,16 @@
   right: 16px;
   top: -20px;
   width: 40px;
+}
+
+.explore {
+
+  h1 {
+    color: #141816;
+    font-weight: bolder;
+  }
+
+  h2 {
+    color: gray;
+  }
 }
