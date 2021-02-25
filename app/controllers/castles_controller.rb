@@ -43,16 +43,16 @@ class CastlesController < ApplicationController
   def my_castles
     @castles = Castle.where(user: current_user)
   end
-  
+
 
   private
 
   def find_castle
     @castle = Castle.find(params[:id])
   end
-  
+
   def castle_params
     params.require(:castle).permit(:name, :country, :city, :address, :zip_code, :description, :price_per_day, :photo)
   end
-  
+
 end
