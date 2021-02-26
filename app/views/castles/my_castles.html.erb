@@ -1,5 +1,7 @@
-<h1> My Castles </h1>
+<div class="container">
+  <h1> My Castles </h1>
+  <% @castles.each do |castle| %>
+  <p><%= castle.name %></p>
+  <% end %>
+</div>
 
-<% @castles.each do |castle| %>
-<p><%= castle.name %></p>
-<% end %>

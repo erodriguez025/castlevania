@@ -5,8 +5,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :first_name, :last_name , presence: true
+  validates :first_name, :last_name, presence: true
   has_many :castles, dependent: :destroy
   has_many :bookings # Son las que el usuario reserva
-  has_many :guest_bookings, through: :castles, source: :bookings # Son las que el usuario recive
+  has_many :guest_bookings, through: :castles, source: :bookings # Son las que el usuario recibe
 end
