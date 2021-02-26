@@ -1,4 +1,4 @@
-<%= form_tag root_path, method: :get do %>
+<%= form_tag root_path + "#explore", method: :get do %>
   <div class="input-group">
     <%= text_field_tag :query,
       params[:query],
@@ -6,7 +6,7 @@
       placeholder: "Find a Castle by Name or Country"
     %>
     <div class="input-group-append">
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-dark" %>
     </div>
   </div>
 <% end %>

@@ -4,11 +4,7 @@
   <div class="container">
     <h1>Your royal experience</h1>
     <p>Rent a castle anywhere in the world</p>
-
-    
-
     <%= render 'shared/search' %>
-
   </div>
 </div>
 
@@ -26,7 +22,9 @@
 <div class="container">
   <div class="explore my-5">
     <h1>Not sure where to go yet?</h1>
-    <h2>Explore our options</h2>
+    <% if params[:query] %>
+    <h2 id="explore">Explore our options in <%= params[:query].capitalize %></h2>
+    <% end %>  
   </div>
   <div class="cards">
     <% counter = 0 %>
