@@ -1,11 +1,40 @@
-<div class="container">
-  <h1>Where I'm going</h1>
-  <% @user_bookings.each do |booking| %>
-  <p> <%= booking.user.first_name %> </p>  
-  <% end %>
-<h1>Who is coming</h1>
-  <% @owner_bookings.each do |booking| %>
-  <p> <%= booking.user.first_name %> </p>  
-  <% end %>
+<div class="container background-color: #f6f9fc">
+  <div class="container multiple-cards">
+    <span class="gray-header">Where I'm staying</span>
+    <% counter = 0 %>
+    <% @user_bookings.each do |booking| %>
+      <div class="castle-card">
+        <% counter += 1 %>
+        <%= image_tag "https://source.unsplash.com/1600x900/?castle?#{counter}" %>
+        <div class="castle-card-infos">
+          <div>
+            <h2><%= booking.castle.name %></h2>
+            <p><%= "Check-in: #{booking.check_in}" %></p>
+            <p><%= "Days:     #{booking.number_of_days} " %></p>
+          </div>
+          <h2 class="castle-card-pricing"><%= number_to_currency(booking.total_price, strip_insignificant_zeros: true) %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="container multiple-cards">
+    <span class="gray-header">Who is coming</span>
+    <% counter = 0 %>
+    <% @user_bookings.each do |booking| %>
+      <div class="castle-card">
+        <% counter += 1 %>
+        <%= image_tag "https://source.unsplash.com/1600x400/?family-portrait?#{counter}" %>
+        <div class="castle-card-infos">
+          <div>
+            <h2><%= "#{booking.user.first_name} #{booking.user.last_name}" %></h2>
+            <p><%= "Check-in: #{booking.check_in}" %></p>
+            <p><%= "Days:     #{booking.number_of_days} " %></p>
+          </div>
+          <h2 class="castle-card-pricing"><%= number_to_currency(booking.total_price, strip_insignificant_zeros: true) %></h2>
+        </div>
+      </div>
+    <% end %>
+  </div>
 
 </div>
