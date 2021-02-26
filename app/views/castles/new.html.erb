@@ -7,8 +7,10 @@
     </div>
     <%= simple_form_for @castle do |f| %>
       <%= f.input :name %>
+      <%= f.input :city %>
       <%= f.input :address %>
       <%= f.input :description %>
+      <%= f.input :price_per_day %>      
       <%= f.input :photo, as: :file %>
       <%= f.button :submit, class: 'btn btn-primary' %>
     <% end %>

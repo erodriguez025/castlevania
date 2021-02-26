@@ -1,8 +1,9 @@
 <div class="bg-white">
   <div class="container p-3">
     <div class="row">
-      <h3><%= @castle.name %></h3>
-      <img class="w-100 rounded mb-4" src="https://source.unsplash.com/1600x300/?castle?1">
+        <h3><%= @castle.name %></h3>
+      <%# <img class="w-100 rounded mb-4" src="https://source.unsplash.com/1600x300/?castle?1"> %>
+      <%= cl_image_tag @castle.photo.key, class: "w-100 rounded mb-4" %>
       <div class="col-md-8">
         <p><%= @castle.description %></p>
         <p> <%= @castle.address %></p>         
