@@ -195,8 +195,8 @@ castles.each do |hash|
 end
 
 puts "Creating bookings"
-Booking.create!(check_in: "23/2/2021", check_out: "10/3/2021", user_id: User.first.id, castle_id: Castle.second.id, total_price: 300000)
-Booking.create!(check_in: "2/2/2021", check_out: "21/2/2021", user_id: User.second.id, castle_id: Castle.first.id, total_price: 200000)
+Booking.create!(check_in: "23/2/2021", number_of_days:10, user_id: User.first.id, castle_id: Castle.second.id, total_price: 300000)
+Booking.create!(check_in: "2/2/2021", number_of_days:10, user_id: User.second.id, castle_id: Castle.first.id, total_price: 200000)
 
 puts 'Finished!'
 
