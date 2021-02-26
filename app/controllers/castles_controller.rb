@@ -21,6 +21,11 @@ class CastlesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers =
+      [{
+        lat: @castle.latitude,
+        lng: @castle.longitude
+      }]
   end
 
   def edit
@@ -28,6 +33,7 @@ class CastlesController < ApplicationController
 
   def create
     @castle = Castle.new(castle_params)
+    @castle.user = current_user
     if @castle.save
       redirect_to castle_path(@castle)
     else
@@ -52,7 +58,7 @@ class CastlesController < ApplicationController
   end
 
   def castle_params
-    params.require(:castle).permit(:name, :country, :city, :address, :zip_code, :description, :price_per_day, :photo)
+    params.require(:castle).permit(:name, :city, :address, :description, :price_per_day, :photo)
   end
 
 end
