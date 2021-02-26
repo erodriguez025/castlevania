@@ -1,7 +1,23 @@
-<div class="container">
-  <h1> My Castles </h1>
+<div id="my-castles-background">
+  <h1 id="my-castles-title-card"> My Castles </h1>
+  <% counter = 0 %>
   <% @castles.each do |castle| %>
-  <p><%= castle.name %></p>
+    <% counter += 1 %>
+    <div class="d-flex justify-content-center">
+      <div class="background-card">
+        <%= image_tag "https://source.unsplash.com/1600x900/?castle?#{counter}", class: "card-castle-image" %>
+        <h3 id="my-castles-card-castle-title"><strong><%= castle.name %></strong> <span class="light-text">(<%= castle.country %>)</span>
+        </h3>
+        <div id = "my-castles-price-per-day"><strong>Price per day: $<%= castle.price_per_day %></strong></div>
+        <div id= "my-castles-delete-button">
+          <p><%= link_to  "Delete Castle", castle_path(castle.id), method: :delete, class: "btn btn-danger" %></p>
+        </div>
+        <% castle.bookings.each do |booking| %>
+          <p>It looks like you have a booking!</p>
+          <p><strong>Go and check it!</strong></p>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 </div>
 
