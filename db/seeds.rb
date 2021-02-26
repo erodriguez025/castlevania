@@ -183,12 +183,12 @@ castles.each do |hash|
   user.save!
   puts "User saved"
   castle = Castle.new(
-    name: hash [:name],
-    country: hash [:country],
-    address: hash [:address],
+    name: hash[:name],
+    country: hash[:country],
+    address: hash[:address],
     zip_code: Faker::Address.zip_code,
-    description: hash [:description],
-    price_per_day: hash [:price_per_day],
+    description: hash[:description],
+    price_per_day: hash[:price_per_day],
     user: user
   )
   castle.photo.attach(io: hash[:file], filename: "#{castle.name}.png", content_type: "image/png")
