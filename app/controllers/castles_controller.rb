@@ -21,6 +21,11 @@ class CastlesController < ApplicationController
 
   def show
     @booking = Booking.new
+    @markers =
+      [{
+        lat: @castle.latitude,
+        lng: @castle.longitude
+      }]
   end
 
   def edit

@@ -1,51 +1,40 @@
-<div class="bg-white">
-  <div class="container p-3">
-    <div class="row">
-        <h3><%= @castle.name %></h3>
-      <%# <img class="w-100 rounded mb-4" src="https://source.unsplash.com/1600x300/?castle?1"> %>
-      <%= cl_image_tag @castle.photo.key, class: "w-100 rounded mb-4" %>
+<div class="container-fluid p-0" id="castle-banner" style="background-image: url('<%= cl_image_path @castle.photo.key, height: 300 %>');"></div>
+
+
+  <div class="container margin-top-negative bg-white p-5 rounded">
+    <div class="row mb-3">
       <div class="col-md-8">
-        <p><%= @castle.description %></p>
-        <p> <%= @castle.address %></p>         
+        <div p-5>
+          <h1><%= @castle.name %></h1>
+          <p><%= @castle.description %></p>
+          <p> <%= @castle.address %></p>
+          <%= link_to "Back to all castles", root_path, class: "btn btn-secondary" %>
+        </div>     
       </div>
-      <div class="col-md-4">
-          <div class="card p-3 mb-3">  
-            <p><strong>$ <%= @castle.price_per_day %>  </strong>/día</p>          
-            <%= simple_form_for ([@castle, @booking]) do |f| %>
-              <%= f.input :check_in, as: :string, input_html: { class: "datapickr" } %>
-              <%= f.input :number_of_days, as: :integer %>
-              <p>Total Cost: <span id="totalPrice" data-price-per-day="<%= @castle.price_per_day %>" class="font-weight-bold"></span></p>
-              <%#= f.input :total_price %>
-              <div class="d-flex justify-content-center">
-                <%= f.button :submit,"Book this castle!" ,class: "btn btn-secondary btn-block" %>
+      <div class="col-md-4 d-flex flex-column">
+          <div>
+            <div class="card p-3 mb-3">  
+              <p><strong>$ <%= @castle.price_per_day %>  </strong>/día</p>          
+              <%= simple_form_for ([@castle, @booking]) do |f| %>
+                <%= f.input :check_in, as: :string, input_html: { class: "datapickr" } %>
+                <%= f.input :number_of_days, as: :integer %>
+                <p>Total Cost: <span id="totalPrice" data-price-per-day="<%= @castle.price_per_day %>" class="font-weight-bold"></span></p>
+                <%#= f.input :total_price %>
+                <div class="d-flex justify-content-center">
+                  <%= f.button :submit,"Book this castle!" ,class: "btn btn-secondary btn-block" %>
+                </div>
+              <% end %>
               </div>
-            <% end %>
           </div>
       </div>
     </div>
-    <%= link_to "Back to all castles", root_path, class: "btn btn-secondary" %>
+          <div class="container" id="map"
+          style="width: 100%; height: 600px; border-radius: 15px;"
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+          
   </div>
-</div>
-
-<div class="d-flex flex-column map-show">
-  <div class="text-center mb-4">
-  </div>
-  <div class="container" id="map-show"
-  style="width: 100%; height: 300px; border-radius: 15px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-</div>
 
 
-<div class="container">
-  <div class="row">
 
-    <div class="col-12 col-lg-8">
-    </div>
-
-    <div class="col-12 col-lg-4">
-    </div>
-
-  </div>
-</div>
