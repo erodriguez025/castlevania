@@ -31,7 +31,8 @@
     <% @castles.each do |castle| %>
     <div class="card-trip">
       <% counter += 1 %>
-      <%= image_tag "https://source.unsplash.com/1600x900/?castle?#{counter}", class: "card-trip" %>
+      <%#= image_tag "https://source.unsplash.com/1600x900/?castle?#{counter}", class: "card-trip" %>
+      <%= cl_image_tag castle.photo.key, class: "card-trip" %>
       <div class="card-trip-infos">
         <div>
           <h2><%= link_to castle.name, castle_path(castle) %></h2>
