@@ -1,3 +1,5 @@
+import { MapMouseEvent } from "mapbox-gl";
+
 const calculatePrice = () => {
   // event listener de el cambio en el imput
   // toma el precio de data del castle

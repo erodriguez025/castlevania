@@ -50,6 +50,10 @@ class CastlesController < ApplicationController
     @castles = Castle.where(user: current_user)
   end
 
+  def destroy
+    @castle.destroy
+    redirect_to mycastles_path
+  end
 
   private
 
