@@ -17,7 +17,8 @@
               <p><strong>$ <%= @castle.price_per_day %>  </strong>/day</p>          
               <%= simple_form_for ([@castle, @booking]) do |f| %>
                 <%= f.input :check_in, as: :string, input_html: { class: "datapickr" } %>
-                <%= f.input :number_of_days, as: :integer %>
+                <%= f.input :check_out, as: :string, input_html: { class: "datapickr" } %>
+                <p>Total Days: <span id="totalDays"></span></p>
                 <p>Total Cost: <span id="totalPrice" data-price-per-day="<%= @castle.price_per_day %>" class="font-weight-bold"></span></p>
                 <%#= f.input :total_price %>
                 <div class="d-flex justify-content-center">
